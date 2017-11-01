@@ -14,9 +14,6 @@ RUN GPG_KEYS=8B0C5E32536032F79A3DCED9E1AFA550C7D3C49A \
     && cd v2ray-v${V2RAY_VERSION}-linux-64 \
     && found=''; \
     for server in \
-        ha.pool.sks-keyservers.net \
-        hkp://keyserver.ubuntu.com:80 \
-        hkp://p80.pool.sks-keyservers.net:80 \
         pgp.mit.edu \
     ; do \
         echo "Fetching GPG key $GPG_KEYS from $server"; \
