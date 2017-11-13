@@ -3,6 +3,7 @@ FROM alpine:3.6
 ENV V2RAY_VERSION=2.47
 
 RUN GPG_KEYS=8B0C5E32536032F79A3DCED9E1AFA550C7D3C49A \
+    && sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
     && apk --no-cache add ca-certificates \
     && apk --no-cache add --virtual .build-deps \
         curl \
