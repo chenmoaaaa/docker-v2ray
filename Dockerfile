@@ -8,7 +8,7 @@ RUN set -ex \
         curl \
         unzip \
     && curl -fSL https://github.com/v2ray/v2ray-core/releases/download/v${V2RAY_VERSION}/v2ray-linux-64.zip -o v2ray.zip \
-    && [ $(sha1sum v2ray.zip) == "03a6acc4d4d612a3c3de0d12b56a30bcb76a314d" ] && echo "Valid." \
+    && [ $(sha1sum v2ray.zip | awk '{ print $1 }') '==' "e6a2f720ab8daa18d711cbba17a1486e71c11e7e" ] && echo "Valid." \
     && unzip v2ray.zip \
     && rm v2ray.zip \
     && cd v2ray-v${V2RAY_VERSION}-linux-64 \
