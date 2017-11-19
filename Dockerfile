@@ -1,6 +1,6 @@
 FROM alpine:3.6
 
-ENV V2RAY_VERSION=2.47
+ENV V2RAY_VERSION=2.50
 
 RUN GPG_KEYS=8B0C5E32536032F79A3DCED9E1AFA550C7D3C49A \
     && sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
@@ -21,8 +21,9 @@ RUN GPG_KEYS=8B0C5E32536032F79A3DCED9E1AFA550C7D3C49A \
         gpg --keyserver "$server" --keyserver-options timeout=10 --recv-keys "$GPG_KEYS" && found=yes && break; \
     done; \
     test -z "$found" && echo >&2 "error: failed to fetch GPG key $GPG_KEYS" && exit 1; \
-    gpg --batch --verify v2ray.sig v2ray \
-    && mv v2ray geoip.dat geosite.dat /usr/local/bin \
+    gpg --batch --verify v2ctl.sig v2ctl \
+    ./v2ctl verify v2ray
+    && mv v2ray v2ctl geoip.dat geosite.dat /usr/local/bin \
     && cd .. \
     && rm -r v2ray-v${V2RAY_VERSION}-linux-64 \
     && apk del .build-deps \
