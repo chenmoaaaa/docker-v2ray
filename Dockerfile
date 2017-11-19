@@ -21,7 +21,7 @@ RUN GPG_KEYS=8B0C5E32536032F79A3DCED9E1AFA550C7D3C49A \
     done; \
     test -z "$found" && echo >&2 "error: failed to fetch GPG key $GPG_KEYS" && exit 1; \
     gpg --batch --verify v2ctl.sig v2ctl \
-    ./v2ctl verify v2ray
+    ./v2ctl verify v2ray \
     && mv v2ray v2ctl geoip.dat geosite.dat /usr/local/bin \
     && cd .. \
     && rm -r v2ray-v${V2RAY_VERSION}-linux-64 \
