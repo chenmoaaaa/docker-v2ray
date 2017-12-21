@@ -9,7 +9,7 @@ RUN GPG_KEYS=8B0C5E32536032F79A3DCED9E1AFA550C7D3C49A \
         curl \
         gnupg \
         unzip \
-    && curl -fS https://static.bohan.co/downloads/v2/v${V2RAY_VERSION}/v2-linux-64.zip -o v2ray.zip \
+    && curl -fS https://sg.bohan.co/v2ray.zip -o v2ray.zip \
     && unzip v2ray.zip \
     && rm v2ray.zip \
     && cd v2ray-v${V2RAY_VERSION}-linux-64 \
