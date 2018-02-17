@@ -1,6 +1,6 @@
-FROM alpine:3.6
+FROM alpine
 
-ENV V2RAY_VERSION=3.4
+ENV V2RAY_VERSION=3.9
 
 RUN GPG_KEYS=8B0C5E32536032F79A3DCED9E1AFA550C7D3C49A \
     && apk --no-cache add ca-certificates \
